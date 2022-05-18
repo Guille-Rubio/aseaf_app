@@ -1,13 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 import 'normalize.css';
-import '../src/styles/styles.scss';
+import './styles/styles.scss';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <p>hola</p>
-      
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
