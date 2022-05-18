@@ -1,0 +1,1 @@
+const selectUsersByEmailAndPassword = `SELECT * FROM users WHERE email='${email}' AND password = '${password}';`

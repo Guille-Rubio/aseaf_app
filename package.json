@@ -1,0 +1,33 @@
+{
+  "name": "app_aseaf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guille-Rubio/app_aseaf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guille-Rubio/app_aseaf/issues"
+  },
+  "homepage": "https://github.com/Guille-Rubio/app_aseaf#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.19.2",
+    "sqlite3": "^5.0.8"
+  }
+}
