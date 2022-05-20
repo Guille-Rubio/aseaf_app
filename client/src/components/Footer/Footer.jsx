@@ -1,12 +1,15 @@
 import React from "react";
-import Chatbot from './Chatbot/Chatbot';
+/* import Chatbot from './Chatbot/Chatbot'; */
 
 const Footer = () => {
-  return <footer>
-    <Chatbot>
+  return (
+    <footer>
+      Footer
+      {/*     <Chatbot>
       <h2>Chatbot</h2>
-    </Chatbot>
-  </footer>;
+    </Chatbot> */}
+    </footer>
+  );
 };
 
 export default Footer;

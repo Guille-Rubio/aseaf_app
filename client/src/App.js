@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import 'normalize.css';
 import './styles/styles.scss';
 import Header from './components/Header/Header';
