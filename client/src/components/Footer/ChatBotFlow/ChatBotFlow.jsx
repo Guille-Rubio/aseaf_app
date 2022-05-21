@@ -35,9 +35,16 @@ const ChatBotFlow = () => {
 
   useEffect(() => {
     //carga siguiente pregunta del bot
-    setConversation([...conversation, { sender: "bot", message: botQuestions[questionNum] }])
+    setTimeout(() => {
+      setConversation([...conversation, { sender: "bot", message: botQuestions[questionNum] }])
+    }, 1500)
     // eslint-disable-next-line
   }, [questionNum])
+
+  useEffect(() => {
+    //Scroll a mensaje mas reciente
+    chatBottom.current.scrollIntoView({ behavior: "smooth" })
+  })
 
 
   const inputKeys = ["name", "surname", "email", "password", "consentGDPR", "ageRange", "userType"]
@@ -115,7 +122,7 @@ const ChatBotFlow = () => {
       </> : ""}
 
     <div ref={chatBottom}></div>
-   {/*  {scrollToBottom()} */}
+    {/*  {scrollToBottom()} */}
   </div>;
 
 
