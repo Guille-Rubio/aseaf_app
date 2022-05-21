@@ -1,1 +1,153 @@
 @import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+body {
+    background-color: $color-body;
+    font-family: $font-family;
+    font-weight: $font-weight-normal;
+}
+
+.img__top {
+    width: 100%;
+}
+
+.text__intro {
+    margin: 0px 16px 16px 16px;
+
+    &--bold {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-mid-max;
+        line-height: $line-height-max;
+    }
+
+    &--normal {
+
+        font-size: $font-size-mid-min;
+        line-height: $line-height-mid;
+    }
+
+    &--button {
+        @include custom-button($color-primary, $button-text-color-light);
+    }
+}
+
+
+.text__forum {
+    margin: 0px 16px 16px 16px;
+    padding-bottom: 24px;
+    border-radius: 20px;
+    background-color: $color-primary;
+    color: $color-white;
+
+    &--question {
+        margin: 16px 24px 8px 24px;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-mid-max;
+    }
+
+    &--answer {
+        margin: 10px 24px 20px 24px;
+
+        font-size: $font-size-mid-min;
+    }
+
+    &--button {
+        @include custom-button($color-primary-hue-light, $color-secondary);
+        margin: auto;
+        display: block;
+    }
+}
+
+
+.text__offer {
+    margin: 40px 16px 16px 16px;
+
+    &--question {
+        text-align: center;
+
+        &--text {
+            color: $color-primary;
+            font-size: $font-size-max;
+            margin-bottom: 5px;
+        }
+
+        &--answer {
+            font-size: $font-size-mid-min;
+            line-height: $line-height-mid;
+            margin-top: 5px;
+        }
+
+    }
+
+    &--item {
+        padding: 25px 0px;
+
+        &--title {
+            font-size: $font-size-mid-max;
+            font-weight: $font-weight-bold;
+            margin: 10px 0px 4px 0px;
+        }
+
+        &--content {
+            font-size: $font-size-mid-min;
+
+            line-height: $line-height-mid;
+            margin-top: 4px;
+        }
+    }
+}
+
+.text__info {
+    margin: 40px 16px 16px 16px;
+
+    &--title {
+        font-size: $font-size-max;
+        color: $color-primary;
+    }
+
+    &--subtitle {
+        font-weight: $font-weight-bold
+    }
+
+    &--container {
+        position: relative;
+        display: inline-block;
+
+        &--text {
+            position: absolute;
+            height: 100%;
+            text-align: center;
+            width: 100%;
+        }
+
+        p {
+            display: inline-block;
+            font-size: $font-size-min;
+            font-weight: $font-weight-bold;
+            color: $color-white;
+        }
+
+        &--text:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: bottom;
+        }
+
+        &--img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &--text {
+        font-size: $font-size-min;
+    }
+
+    &--button {
+        @include custom-button($color-primary, $button-text-color-light);
+        margin: auto;
+        display: block;
+    }
+}

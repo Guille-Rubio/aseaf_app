@@ -1,0 +1,9 @@
+@mixin custom-button ($bgcolor, $fontcolor) {
+    background-color: $bgcolor;
+    color: $fontcolor;
+    border-radius: $button-border-radius;
+    padding: 9px 18px 9px 18px;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-min;
+    border: none;
+}
