@@ -1,11 +1,9 @@
 import React from "react";
-import Chatbot from './Chatbot/Chatbot';
+import ChatBotFlow from "./ChatBotFlow/ChatBotFlow";
 
 const Footer = () => {
   return <footer>
-    <Chatbot>
-      <h2>Chatbot</h2>
-    </Chatbot>
+    <ChatBotFlow />
   </footer>;
 };
 
