@@ -1,1 +1,42 @@
-$fontFamily:'Poppins'
+// Google Font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+$font-family: 'Poppins', sans-serif;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+$line-height-min: 18;
+$font-size-min: 12;
+$font-size-mid-min: 14;
+$font-size-mid-max: 16;
+$font-size-max: 20;
+$line-height-mid: 24;
+$line-height-max: 30;
+$color-primary: #F1630F;
+$color-primary-hue-dark: #F58A4B;
+$color-primary-hue-medium: #F3A38C;
+$color-primary-hue-light: #FCD8C3;
+$color-secondary: #465E53;
+$color-secondary-hue-dark: #6B907F;
+$color-secondary-hue-medium: #9CB5AA;
+$color-secondary-hue-light: #CDDAD4;
+$color-warning: #FFEF61;
+$color-warning-hue-dark: #FFFBA3;
+$color-warning-hue-medium: #FFFCBA;
+$color-warning-hue-light: #FFFDD1;
+$color-warning-hue-very-light: #FFFEE8;
+$color-negative: #F43535;
+$color-negative-hue-dark: #E87D7D;
+$color-negative-hue-medium: #EE9D9D;
+$color-negative-hue-light: #F3BEBE;
+$color-negative-hue-very-light: #F9DEDE;
+$color-positive: #3FFF5D;
+$color-positive-hue-dark: #59C96B;
+$color-positive-hue-medium: #88D895;
+$color-positive-hue-light: #B8E8C0;
+$color-positive-hue-very-light: #D0F0D5;
+$color-black: #1C1A1B;
+$color-black-hue-dark: #525051;
+$color-black-hue-medium: #878687;
+$color-black-hue-light: #BCBCBC;
+$color-black-hue-very-light: #D3D0D2;
+$color-white: #F4F4F4;
