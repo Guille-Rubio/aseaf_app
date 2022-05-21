@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const ChatBotFlow = () => {
 
   const input = useRef();
+  const chatBottom = useRef();
   const [questionNum, setQuestionNum] = useState(0);
   const [answers, setAnswers] = useState({
     name: "",
@@ -30,9 +31,12 @@ const ChatBotFlow = () => {
     }]
   )
 
+
+
   useEffect(() => {
     //carga siguiente pregunta del bot
     setConversation([...conversation, { sender: "bot", message: botQuestions[questionNum] }])
+    // eslint-disable-next-line
   }, [questionNum])
 
 
@@ -49,6 +53,11 @@ const ChatBotFlow = () => {
       `¿Ya eres familia de acogida o estás interesado?`,
       'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'
     ]
+
+
+  /* const scrollToBottom = () => {
+    chatBottom.current.scrollIntoView({behavior:"smooth"})
+  } */
 
   const saveAnswer = (answerKey, answerValue) => {
     setAnswers({ ...answers, [answerKey]: answerValue })
@@ -68,10 +77,10 @@ const ChatBotFlow = () => {
   }
 
 
-  return <div>
-    <h1>Chatbot</h1>
+  return <div className="chatbot">
 
     {conversation.map(msg => <div className={msg.sender} key={uuidv4()}><p>{msg.message}</p></div>)}
+
 
     {questionNum === 4 ?
       <>
@@ -104,7 +113,11 @@ const ChatBotFlow = () => {
         <input type="text" id="input" name="input" ref={input} />
         <button onClick={handleMessage}>Enviar</button>
       </> : ""}
+
+    <div ref={chatBottom}></div>
+   {/*  {scrollToBottom()} */}
   </div>;
+
 
 };
 
