@@ -1,8 +1,19 @@
-import React from "react";
+
+import React, { useState} from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
-import ChatBotFlow from "./ChatBotFlow/ChatBotFlow";
+import Chatbot from "react-chatbot-kit";
+import config from "../../utils/chatbotConfig/config";
+import MessageParser from '../../utils/chatbotConfig/MessageParser';
+import ActionProvider from "../../utils/chatbotConfig/ActionProvider";
 
 const Footer = () => {
+  
+  const [displayChat, setDisplayChat] = useState(false);
+  
+   const handleChatDisplay = () => {
+    setDisplayChat(!displayChat)
+  }
+  
   return (
     <footer>
       {/* <ChatBotFlow /> */}
@@ -35,8 +46,18 @@ const Footer = () => {
           <div className="footer__bottom--social--icons"><FaFacebookF size={20}/><FaTwitter size={20} /><FaInstagram size={20} /><FaYoutube size={20} /> </div>
         </div>
       </div>
+
+  <button className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
+    {displayChat ?
+      <>
+        <Chatbot
+          config={config}
+          messageParser={MessageParser}
+          actionProvider={ActionProvider}
+        />
+        
+      </>
+      : ""}
     </footer>
   );
-};
-
 export default Footer;
