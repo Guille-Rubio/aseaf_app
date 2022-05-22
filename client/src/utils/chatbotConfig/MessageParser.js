@@ -6,6 +6,7 @@ class MessageParser {
     }
 
     parse(message) {
+        
         if (this.state.questionNum === 0) {
             console.log("question1")
             this.actionProvider.handleName(message)
@@ -41,7 +42,7 @@ class MessageParser {
 
         } else if (this.state.questionNum === 7){
             console.log("Open question")
-            this.actionProvider.handleOpenQuestion(message)
+            this.actionProvider.handleOpenQuestion(message, this.state)
         }
 
 

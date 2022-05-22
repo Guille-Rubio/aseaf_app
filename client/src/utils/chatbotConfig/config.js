@@ -6,6 +6,7 @@ import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotCh
 import ConsentGDPR from './widgets/consentGDPR';
 import AgeRange from './widgets/ageRange';
 import UserType from './widgets/userType';
+import APIRequest from './widgets/apiRequest';
 
 
 
@@ -29,7 +30,7 @@ const config = {
 
     customStyles: {
         chatButton: {
-            backgroundColor: '#F1630F',
+            backgroundColor: '#465E53',
             borderRadius: "15px",
         },
     },
@@ -46,7 +47,7 @@ const config = {
     },
 
     customComponents: {
-        header: () => <div style={{ backgroundColor: '#F1630F', padding: "5px", borderRadius: "3px", margin: '5px' }}>Bienvenido</div>,
+        //header: () => <div style={{ backgroundColor: '#F1630F', padding: "5px", borderRadius: "3px", margin: '5px' }}>Bienvenido</div>,
         botAvatar: (props) => <Avatar />,
         userAvatar: (props) => <UserAvatar {...props} />,
         botChatMessage: (props) => <BotChatMessage {...props} />,
@@ -65,7 +66,12 @@ const config = {
         {
             widgetName: 'UserType',
             widgetFunc: (props) => <UserType {...props} />,
+        },
+        {
+            widgetName: 'APIRequest',
+            widgetFunc: (props) => <APIRequest {...props} />
         }
+
     ]
 
 

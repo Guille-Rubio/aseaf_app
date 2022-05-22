@@ -81,10 +81,12 @@ class ActionProvider {
     this.nextQuestion(7);
   }
 
-  handleOpenQuestion(message) {
-    const answer = this.createChatbotMessage(<BotChatMessage message={'Tras la petición a la API estos son tus enlaces de interés....'} />)
+  handleOpenQuestion(message, state) {
+    const answer = this.createChatbotMessage(<BotChatMessage message={'Este es tu contenido de interés'} />, { widget: "APIRequest" })
     setTimeout(() => { this.addToStateMessages(answer) }, timer);
     this.nextQuestion(8);
+
+    //Sign up user
   }
 
 
@@ -102,9 +104,6 @@ class ActionProvider {
     }))
 
   }
-
-
-
 
   addToStateMessages(message) {
     this.setState((prevState) => ({
