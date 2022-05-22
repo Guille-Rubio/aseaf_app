@@ -29,20 +29,22 @@ const Home = () => {
           <p className="text__offer--question--text">¿Qué ofrecemos?</p>
           <p className="text__offer--question--answer">Una ayuda personalizada de las inquietudes  sobre el acogimiento familiar.</p>
         </div>
-        <div className="text__offer--item">
+      </div>
+      <div className="offer__items">
+        <div className="offer__items--item">
           <img src={chatIcon} alt='icono chat' />
-          <p className="text__offer--item--title">Chatbot</p>
-          <p className="text__offer--item--content">Charla de tus inquietudes para aliviarlas a través de una conversación con nuestro chatbot.</p>
+          <p className="offer__items--item--title">Chatbot</p>
+          <p className="offer__items--item--content">Charla de tus inquietudes para aliviarlas a través de una conversación con nuestro chatbot.</p>
         </div>
-        <div className="text__offer--item">
+        <div className="offer__items--item">
           <img src={infoIcon} alt='icono info' />
-          <p className="text__offer--item--title">Información personalizada</p>
-          <p className="text__offer--item--content">Contenido personalizado según tus inquietudes.</p>
+          <p className="offer__items--item--title">Información personalizada</p>
+          <p className="offer__items--item--content">Contenido personalizado según tus inquietudes.</p>
         </div>
-        <div className="text__offer--item">
+        <div className="offer__items--item">
           <img src={peopleIcon} alt='icono gente' />
-          <p className="text__offer--item--title">Comparte tus inquietudes</p>
-          <p className="text__offer--item--content">Comparte con otras familias reales tu experiencia, dudas o inquietudes</p>
+          <p className="offer__items--item--title">Comparte tus inquietudes</p>
+          <p className="offer__items--item--content">Comparte con otras familias reales tu experiencia, dudas o inquietudes</p>
         </div>
       </div>
 

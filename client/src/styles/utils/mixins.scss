@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 @mixin custom-button ($bgcolor, $fontcolor) {
     background-color: $bgcolor;
     color: $fontcolor;
@@ -6,4 +8,22 @@
     font-weight: $font-weight-bold;
     font-size: $font-size-min;
     border: none;
+}
+
+@mixin phone {
+    @media only screen and (min-width: $phone) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: $desktop) {
+        @content;
+    }
 }
