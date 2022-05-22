@@ -61,7 +61,7 @@ class ActionProvider {
       this.nextQuestion(5);
 
     } else if (message === "No") {
-      const answer = this.createChatbotMessage(<BotChatMessage message={`Necesitamos tu consentimiento para poder darte información personalizada, ¿nos das tu permiso para enviarte información personalizada?`} />, { widget: "Options" })
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Necesitamos tu consentimiento para poder darte información personalizada, ¿nos das tu permiso para enviarte información personalizada?`} />, { widget: "ConsentGDPR" })
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
     }
   }
