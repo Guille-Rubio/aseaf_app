@@ -3,6 +3,9 @@ import Avatar from '../../components/Footer/Chatbot/Avatar/Avatar';
 import UserAvatar from '../../components/Footer/Chatbot/UserAvatar/UserAvatar';
 import UserChatMessage from '../../components/Footer/Chatbot/UserChatMessage/UserChatMessage';
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
+import ConsentGDPR from './widgets/consentGDPR';
+import AgeRange from './widgets/ageRange';
+import UserType from './widgets/userType';
 
 
 
@@ -18,7 +21,6 @@ const config = {
         createChatBotMessage('Para poder ofrecerte una información más personalizada necesitamos crearte un perfil mediante un correo electrónico y una contraseña donde poder compartir contigo esa información.',/*  { delay: 4500 } */),
 
         createChatBotMessage('Para poder conocerte mejor, ¿Cómo quieres que te llame?',/*  { delay: 9000 } */),
-  
 
     ],
 
@@ -50,7 +52,22 @@ const config = {
         userChatMessage: (props) => <UserChatMessage {...props} />
     },
 
-   
+    widgets: [
+        {
+            widgetName: 'ConsentGDPR',
+            widgetFunc: (props) => <ConsentGDPR {...props} />,
+        },
+        {
+            widgetName: 'AgeRange',
+            widgetFunc: (props) => <AgeRange {...props} />,
+        },
+        {
+            widgetName: 'UserType',
+            widgetFunc: (props) => <UserType {...props} />,
+        }
+    ]
+
+
 };
 
 
