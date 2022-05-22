@@ -3,7 +3,7 @@ import userAvatar from '../../../../assets/img/userAvatar.svg';
 
 class UserAvatar extends Component {
   render() {
-    return <img src={userAvatar} alt="nexus"/>;
+    return <img className="user-avatar" src={userAvatar} alt="nexus"/>;
   }
 }
 

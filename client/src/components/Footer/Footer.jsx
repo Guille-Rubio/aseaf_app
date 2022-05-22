@@ -7,7 +7,7 @@ import ActionProvider from "../../utils/chatbotConfig/ActionProvider";
 const Footer = () => {
 
  
-  const [displayChat, setDisplayChat] = useState(true)
+  const [displayChat, setDisplayChat] = useState(false)
   
 
 
