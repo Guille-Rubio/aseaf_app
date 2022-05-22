@@ -6,5 +6,58 @@ footer {
     font-family: $font-family;
     font-weight: $font-weight-normal;
     font-size: $font-size-mid-min;
-    padding-bottom:30px ;
+    padding-bottom: 30px;
+}
+
+%footer__title {
+    p {
+        font-weight: $font-weight-bold;
+    }
+}
+
+%footer__list {
+    ul {
+        list-style-type: none;
+        padding-inline-start: 0px;
+        line-height: $line-height-mid;
+    }
+}
+
+.footer__top {
+    margin: 0px 16px 16px 16px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+
+    &--knowus {
+        @extend %footer__title;
+        @extend %footer__list;
+    }
+
+    &--legal {
+        @extend %footer__title;
+        @extend %footer__list;
+    }
+}
+
+.footer__bottom {
+    margin: 0px 16px 16px 16px;
+    @extend %footer__title;
+
+    hr {
+        border: 1px solid $color-white;
+    }
+
+    &--social {
+        p {
+            text-align: center;
+        }
+
+        &--icons {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-around;
+        }
+    }
 }
