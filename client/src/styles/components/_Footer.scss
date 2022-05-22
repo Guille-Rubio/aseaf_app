@@ -30,6 +30,11 @@ footer {
     justify-content: left;
     flex-direction: column;
 
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
     &--knowus {
         @extend %footer__title;
         @extend %footer__list;
@@ -51,12 +56,12 @@ footer {
 
     &--social {
         p {
+            padding: 15px;
             text-align: center;
         }
 
         &--icons {
             display: flex;
-            padding-top: 10px;
             justify-content: space-around;
         }
     }
