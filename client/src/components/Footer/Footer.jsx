@@ -10,7 +10,7 @@ import APIRequest from "../../utils/chatbotConfig/widgets/APIRequest";
 
 const Footer = () => {
 
-  const [displayChat, setDisplayChat] = useState(true);
+  const [displayChat, setDisplayChat] = useState(false);
 
   const handleChatDisplay = () => {
     setDisplayChat(!displayChat)
