@@ -11,7 +11,7 @@
 .user-avatar {
     border-radius: 50px;
     display: inline-block;
-    height:75px;
+    height: 75px;
 }
 
 .bot {
@@ -28,7 +28,7 @@
     color: $color-secondary;
     margin: 10px;
     padding: 8px 13px;
-    border-radius: 20px 20px 20px 0px;    
+    border-radius: 20px 20px 20px 0px;
 }
 
 .user {
@@ -98,7 +98,7 @@
 
 .react-chatbot-kit-chat-btn-send {
 
-    background-color: $color-secondary !important;
+    background-color: $color-secondary  !important;
     border: none;
     width: 35px;
     height: 35px;
@@ -109,11 +109,14 @@
 .react-chatbot-kit-chat-btn-send-icon {
     background-image: url('../../assets/img/send.svg') !important;
     background-repeat: no-repeat;
+
+    path {
+        fill: $color-primary;
+        d: path('');
+    }
+
 }
- path {
-     fill: $color-primary;
-     d: path('');
-}
+
 
 .react-chatbot-kit-chat-bot-message-container {
     display: flex;

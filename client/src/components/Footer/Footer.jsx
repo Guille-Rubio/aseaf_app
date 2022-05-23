@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaAirbnb,FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
 import MessageParser from '../../utils/chatbotConfig/MessageParser';
@@ -35,8 +35,7 @@ const Footer = () => {
             <li>Aviso legal</li>
           </ul>
         </div>
-      </div>
-
+      </div>      
       <div className="footer__bottom">
         <div>
           <p>©️ 2022 ASEAF</p>
