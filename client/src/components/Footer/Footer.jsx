@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FaAirbnb,FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
 import MessageParser from '../../utils/chatbotConfig/MessageParser';
@@ -56,7 +56,6 @@ const Footer = () => {
             messageParser={MessageParser}
             actionProvider={ActionProvider}
           />
-
         </>
         : ""}
     </footer>
