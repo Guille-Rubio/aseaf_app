@@ -1,3 +1,4 @@
+import axios from 'axios';
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
 import regex from '../regex';
 import APIRequest from './widgets/APIRequest';
@@ -69,10 +70,18 @@ class ActionProvider {
 
 
   handleAgeQuestion(message) {
-    this.addToState("ageRange", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={`¿Ya eres familia de acogida o estás interesado?`} />, { widget: "UserType" })
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(6);
+    console.log(message)
+    if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") {
+      console.log("********", message)
+      this.addToState("ageRange", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`¿Ya eres familia de acogida o estás interesado?`} />, { widget: "UserType" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(6);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor confirma tu rango de edad para poder continuar`} />, { widget: "AgeRange" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+
+    }
   }
 
   handleUserType(message) {
@@ -87,13 +96,23 @@ class ActionProvider {
     console.log("input message", message);
     this.addToState("openQuestion", message);
     APIRequest(message);
-    
+    this.nextQuestion(8);
+
 
     //const answer = this.createChatbotMessage(<BotChatMessage message={response} />)
     //setTimeout(() => { this.addToStateMessages(answer) }, timer);
     //this.nextQuestion(8);
 
     //Sign up user
+
+  }
+
+  handleLastQuestion(message, state) {
+    axios({
+      url: "",
+      method: 'post',
+      data: state
+    })
 
   }
 
