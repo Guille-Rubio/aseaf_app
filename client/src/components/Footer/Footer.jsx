@@ -5,10 +5,12 @@ import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
 import MessageParser from '../../utils/chatbotConfig/MessageParser';
 import ActionProvider from "../../utils/chatbotConfig/ActionProvider";
+import APIRequest from "../../utils/chatbotConfig/widgets/APIRequest";
+
 
 const Footer = () => {
 
-  const [displayChat, setDisplayChat] = useState(false);
+  const [displayChat, setDisplayChat] = useState(true);
 
   const handleChatDisplay = () => {
     setDisplayChat(!displayChat)
@@ -16,7 +18,6 @@ const Footer = () => {
 
   return (
     <footer>
-      {/* <ChatBotFlow /> */}
       <div className="footer__top">
         <div className="footer__top--knowus">
           <p>CONÓCENOS</p>
@@ -46,6 +47,7 @@ const Footer = () => {
           <div className="footer__bottom--social--icons"><FaFacebookF size={20} /><FaTwitter size={20} /><FaInstagram size={20} /><FaYoutube size={20} /> </div>
         </div>
       </div>
+      <APIRequest/>
 
       <button className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
       {displayChat ?
