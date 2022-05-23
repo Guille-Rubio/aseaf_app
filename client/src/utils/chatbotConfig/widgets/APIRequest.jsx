@@ -11,10 +11,10 @@ const APIRequest = (message) => {
       try {
         const request = await axios({
           url: `http://alejomo.pythonanywhere.com/api/v1/consulta?text=undefined`,
-          method: 'post'
+          method: 'get'
         })
         const response = await request.data;
-        setApiResponse(response.response);
+        setApiResponse(response.respond);
 
       } catch (err) {
         throw err
