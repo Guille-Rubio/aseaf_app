@@ -48,7 +48,7 @@ const Footer = () => {
       </div>
       {/* <APIRequest/> */}
 
-      <button className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
+      <button id='nexus2' className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
       {displayChat ?
         <>
           <Chatbot
