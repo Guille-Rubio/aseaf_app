@@ -1,0 +1,33 @@
+.header{
+    display:column;
+    overflow: visible;
+  /*   display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    padding:16px;
+    max-height:50px;
+    overflow:visible;  */
+}
+
+.header__menu-logo-and-button-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:flex-end;
+    padding:16px;
+    max-height:50px;
+    overflow:visible;
+}  
+
+
+.header__menu-and-logo-container{
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    gap:16px;
+    max-height:50px;
+  
+    
+}
+

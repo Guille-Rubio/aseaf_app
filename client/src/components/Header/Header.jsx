@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from '../../assets/img/logo.png'
-/* import Nav from "./Nav/Nav";
-import User from "./User/User"; */
+import Nav from '../Header/Nav/Nav';
+import crossMenuIcon from '../../assets/img/crossMenuIcon.svg';
+import burgerMenuIcon from '../../assets/img/burgerMenuIcon.svg';
+
+
 const Header = () => {
+
+  const [displayMenu, setDisplayMenu] = useState(false);
+
+  const handleMenuDisplay = () => {
+    setDisplayMenu(!displayMenu);
+  }
+
+
   return (
-    <header>
-      <img src={logo} alt='logo enlace'/>
+    <header className="header">
+      <div className="header__menu-logo-and-button-container">
+        <div className="header__menu-and-logo-container">
+          {displayMenu ? <img src={crossMenuIcon} alt="close menu icon" onClick={handleMenuDisplay} />  : <img src={burgerMenuIcon} alt="burger menu" onClick={handleMenuDisplay} />}
+          <img src={logo} alt='logo enlace' />
+        </div>
+        <button className="text__intro--button">¿Charlamos?</button>
+      </div>
+      {displayMenu ? <Nav /> : ""}
     </header>
   );
 };
