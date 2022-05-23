@@ -1,0 +1,23 @@
+.nav{
+    position:absolute;
+    background-color: $color-body;
+    overflow: visible;
+    z-index: 4;
+}
+
+
+.nav__navlist{
+    display:flex;
+    flex-direction: column;
+    list-style: none;
+    padding:5px;
+    z-index:2;
+    margin:0px;
+    overflow: visible;
+    width:100vw;
+}
+
+.nav__navlist > li{
+    padding:10px;
+    overflow: visible;
+}
