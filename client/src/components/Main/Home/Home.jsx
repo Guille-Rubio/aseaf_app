@@ -13,7 +13,7 @@ const Home = () => {
       <div className='text__intro' >
         <p className="text__intro--bold">¡Hola! <br />Somos un enlace entre las familias y la asociación. Te ayudamos con las principales dudas e incertidumbres sobre el acogimiento familiar.</p>
         <p className="text__intro--normal">Conecta con nuestro chat inteligente para recibir un contenido de información personalizado</p>
-        <button className="text__intro--button">Accede al chat</button>
+        <button id='nexus1' className="text__intro--button">Accede al chat</button>
       </div>
 
       <div className="text__forum">
@@ -21,7 +21,7 @@ const Home = () => {
         <p className="text__forum--question">¿Tienes alguna duda o inquietud sobre el proceso de acogida?</p>
         <p className="text__forum--answer">No te preocupes, es normal. Estamos aquí para ayudarte. </p>
         <p className="text__forum--answer">A través del foro puedes compartir tu experiencia, comentar inquitudes o preguntar dudas con el resto de familias que puedan estar pasando o ya hayan pasado por tus mismos pensamientos.</p>
-        <button className="text__forum--button">Accede al foro</button>
+        <button id="foro" className="text__forum--button">Accede al foro</button>
       </div>
 
       <div className="text__offer">
@@ -58,7 +58,7 @@ const Home = () => {
           <img className="text__info--container--img" src={kids} alt='kids' />
         </div>
         <p className="text__info--text">ASEAF es la Asociación Estatal de Acogimiento Familiar y está integrada por 21 asociaciones de distintas Comunidades Autónomas formadas, en su mayoría, por familias acogedoras a las que además prestan apoyo de forma directa.</p>
-        <button className="text__info--button">+ Información</button>
+        <button id='info' className="text__info--button">+ Información</button>
       </div>
     </>
   );

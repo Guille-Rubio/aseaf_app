@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FaAirbnb,FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
 import MessageParser from '../../utils/chatbotConfig/MessageParser';
@@ -48,7 +48,7 @@ const Footer = () => {
       </div>
       {/* <APIRequest/> */}
 
-      <button className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
+      <button id='nexus2' className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
       {displayChat ?
         <>
           <Chatbot
