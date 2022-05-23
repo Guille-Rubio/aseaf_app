@@ -1,7 +1,8 @@
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
 import regex from '../regex';
+import APIRequest from './widgets/APIRequest';
 
-const timer = 1000;
+const timer = 0;
 
 class ActionProvider {
   constructor(createChatbotMessage, setStateFunc, createClientMessage) {
@@ -82,9 +83,18 @@ class ActionProvider {
   }
 
   handleOpenQuestion(message) {
-    const answer = this.createChatbotMessage(<BotChatMessage message={'Tras la petición a la API estos son tus enlaces de interés....'} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(8);
+
+    console.log("input message", message);
+    this.addToState("openQuestion", message);
+    APIRequest(message);
+    
+
+    //const answer = this.createChatbotMessage(<BotChatMessage message={response} />)
+    //setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    //this.nextQuestion(8);
+
+    //Sign up user
+
   }
 
 
@@ -102,9 +112,6 @@ class ActionProvider {
     }))
 
   }
-
-
-
 
   addToStateMessages(message) {
     this.setState((prevState) => ({
