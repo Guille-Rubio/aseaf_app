@@ -6,6 +6,7 @@ class MessageParser {
     }
 
     parse(message) {
+        
         if (this.state.questionNum === 0) {
             console.log("question1")
             this.actionProvider.handleName(message)

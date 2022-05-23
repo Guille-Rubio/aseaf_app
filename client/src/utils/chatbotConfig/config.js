@@ -9,6 +9,7 @@ import UserType from './widgets/userType';
 
 
 
+
 const botName = 'Nexus';
 
 
@@ -19,17 +20,17 @@ const config = {
 
     initialMessages: [
 
-        createChatBotMessage(<BotChatMessage message={"¡Hola!"} />, { delay: 500 }),
-        createChatBotMessage('Soy Nexus! Estoy aqui para ayudarte y resolver tus dudas e inquietudes', { delay: 2000 }),
-        createChatBotMessage('Para poder ofrecerte una información más personalizada necesitamos crearte un perfil mediante un correo electrónico y una contraseña donde poder compartir contigo esa información.', { delay: 4500 }),
+        createChatBotMessage(<BotChatMessage message={"¡Hola!"} />, { delay: 0 }),
+        createChatBotMessage('Soy Nexus! Estoy aqui para ayudarte y resolver tus dudas e inquietudes', { delay: 0 }),
+        createChatBotMessage('Para poder ofrecerte una información más personalizada necesitamos crearte un perfil mediante un correo electrónico y una contraseña donde poder compartir contigo esa información.', { delay: 0 }),
 
-        createChatBotMessage('Para poder conocerte mejor, ¿Cómo quieres que te llame?', { delay: 9000 }),
+        createChatBotMessage('Para poder conocerte mejor, ¿Cómo quieres que te llame?', { delay: 0 }),
 
     ],
 
     customStyles: {
         chatButton: {
-            backgroundColor: '#F1630F',
+            backgroundColor: '#465E53',
             borderRadius: "15px",
         },
     },
@@ -43,10 +44,12 @@ const config = {
         ageRange: "",
         userType: "",
         questionNum: 0,
+        openQuestion:"",
+        apiResponse:{}
     },
 
     customComponents: {
-        header: () => <div style={{ backgroundColor: '#F1630F', padding: "5px", borderRadius: "3px", margin: '5px' }}>Bienvenido</div>,
+        //header: () => <div style={{ backgroundColor: '#F1630F', padding: "5px", borderRadius: "3px", margin: '5px' }}>Bienvenido</div>,
         botAvatar: (props) => <Avatar />,
         userAvatar: (props) => <UserAvatar {...props} />,
         botChatMessage: (props) => <BotChatMessage {...props} />,
@@ -65,7 +68,9 @@ const config = {
         {
             widgetName: 'UserType',
             widgetFunc: (props) => <UserType {...props} />,
-        }
+        },
+      
+
     ]
 
 
