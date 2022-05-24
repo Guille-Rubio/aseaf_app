@@ -1,3 +1,5 @@
+@import '../utils/variables.scss';
+
 .chat-button {
     display: flex;
     flex-direction: row;
@@ -8,7 +10,9 @@
 
     /* Primarios/Matiz primario 2 */
 
-    background: #F3A38C;
+    background: $color-primary-hue-light;
+    color: $color-secondary;
     border-radius: 40px;
+    border: none;
 
 }

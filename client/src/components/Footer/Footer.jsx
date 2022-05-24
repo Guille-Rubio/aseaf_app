@@ -36,8 +36,7 @@ const Footer = () => {
             <li>Aviso legal</li>
           </ul>
         </div>
-      </div>
-
+      </div>      
       <div className="footer__bottom">
         <div>
           <p>©️ 2022 ASEAF</p>
@@ -50,7 +49,7 @@ const Footer = () => {
       </div>
       <APIRequest/>
 
-      <button className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
+      <button id='nexus2' className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
       {displayChat ?
         <>
           <Chatbot
@@ -58,7 +57,6 @@ const Footer = () => {
             messageParser={MessageParser}
             actionProvider={ActionProvider}
           />
-
         </>
         : ""}
     </footer>
