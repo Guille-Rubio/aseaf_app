@@ -10,11 +10,12 @@ const APIRequest = (message) => {
     async function getData() {
       try {
         const request = await axios({
-          url: `http://alejomo.pythonanywhere.com/api/v1/consulta?text=undefined`,
-          method: 'get'
+          url: `http://alejomo.pythonanywhere.com/api/v1/consulta?text=despedida`/* 'https://dog.ceo/api/breeds/image/random' */,
+          method: 'get',
+          headers: { 'Content-Type': 'application/json' }
         })
         const response = await request.data;
-        setApiResponse(response.respond);
+        setApiResponse(response);
 
       } catch (err) {
         throw err
@@ -28,7 +29,9 @@ const APIRequest = (message) => {
 
   return <div className="options-container">
     <h1>Resultados de la API</h1>
-    <p>{apiResponse}</p>
+    {apiResponse.message ? <img src={apiResponse.message} alt="perro random" /> : ""}
+    {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
+
   </div>;
 
 }
