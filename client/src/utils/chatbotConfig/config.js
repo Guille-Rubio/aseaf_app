@@ -6,7 +6,8 @@ import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotCh
 import ConsentGDPR from './widgets/consentGDPR';
 import AgeRange from './widgets/ageRange';
 import UserType from './widgets/userType';
-
+import ChildrenNumber from './widgets/childrenNumber';
+import ChildrenAge from './widgets/childrenAge';
 
 const botName = 'Nexus';
 
@@ -39,8 +40,10 @@ const config = {
         email: "",
         password: "",
         consentGDPR: "",
-        ageRange: "",
         userType: "",
+        ageRange: "",
+        children:[],
+        zipCode:"",
         questionNum: 0,
         openQuestion:"",
         apiResponse:{}
@@ -60,13 +63,22 @@ const config = {
             widgetFunc: (props) => <ConsentGDPR {...props} />,
         },
         {
+            widgetName: 'UserType',
+            widgetFunc: (props) => <UserType {...props} />,
+        },
+        {
             widgetName: 'AgeRange',
             widgetFunc: (props) => <AgeRange {...props} />,
         },
         {
-            widgetName: 'UserType',
-            widgetFunc: (props) => <UserType {...props} />,
+            widgetName: 'ChildrenNumber',
+            widgetFunc: (props) => <ChildrenNumber {...props} />,
         },
+        {
+            widgetName: 'ChildrenAge',
+            widgetFunc: (props) => <ChildrenAge {...props} />,
+        },
+      
       
 
     ]

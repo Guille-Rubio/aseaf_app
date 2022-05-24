@@ -31,25 +31,34 @@ class MessageParser {
 
 
         } else if (this.state.questionNum === 5) {
-            console.log("question6")
-            this.actionProvider.handleAgeQuestion(message)
-
-
-        } else if (this.state.questionNum === 6) {
             console.log("question7")
             this.actionProvider.handleUserType(message)
 
 
+        } else if (this.state.questionNum === 6) {
+            console.log("question6")
+            this.actionProvider.handleAgeQuestion(message)
+
+
         } else if (this.state.questionNum === 7) {
-            console.log("Open question")
-            this.actionProvider.handleOpenQuestion(message)
+            console.log("question6")
+            this.actionProvider.handleChildrenNumber(message)
 
 
         } else if (this.state.questionNum === 8) {
+            console.log("question6")
+            this.actionProvider.handleChildrenAge(message)
+
+
+        } else if (this.state.questionNum === 9) {
+            console.log("Open question")
+            this.actionProvider.handleZipCode(message)
+
+
+        } else if (this.state.questionNum === 10) {
             console.log("last question")
             this.actionProvider.handleLastQuestion(message, this.state)
         }
-
 
     }
 }

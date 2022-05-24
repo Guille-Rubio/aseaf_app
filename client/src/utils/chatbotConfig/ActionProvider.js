@@ -53,13 +53,14 @@ class ActionProvider {
   }
 
   handleConsentGDPR(message) {
-    console.log("LLEGO", message)
     if (message === "Si") {
       this.addToState("consentGDPR", message)
       const answer1 = this.createChatbotMessage(<BotChatMessage message={`¡Genial !`} />)
-      const answer2 = this.createChatbotMessage(<BotChatMessage message={`Para poder hacer mejor mi labor, me gustaría conocer  más sobre ti, empezando por tu edad:`} />, { widget: "AgeRange" })
+      const answer2 = this.createChatbotMessage(<BotChatMessage message={`Para poder hacer mejor mi labor, me gustaría conocer  más sobre ti`} />)
+      const answer3 = this.createChatbotMessage(<BotChatMessage message={`¿Ya eres familia de acogida o estás interesado?`} />, { widget: "UserType" })
       setTimeout(() => { this.addToStateMessages(answer1) }, timer);
       setTimeout(() => { this.addToStateMessages(answer2) }, timer);
+      setTimeout(() => { this.addToStateMessages(answer3) }, timer);
       this.nextQuestion(5);
 
     } else if (message === "No") {
@@ -68,35 +69,63 @@ class ActionProvider {
     }
   }
 
-
-  handleAgeQuestion(message) {
-    console.log(message)
-    if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") {
-      console.log("********", message)
-      this.addToState("ageRange", message)
-      const answer = this.createChatbotMessage(<BotChatMessage message={`¿Ya eres familia de acogida o estás interesado?`} />, { widget: "UserType" })
-      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+  handleUserType(message) {
+    if (message === "familia" || "interesado") {
+      this.addToState("userType", message);
+      const answer1 = this.createChatbotMessage(<BotChatMessage message={`¡Me alegra que estés interesada!`} />);
+      const answer2 = this.createChatbotMessage(<BotChatMessage message={`¿En que rango de edad te encuentras?`} />, { widget: "AgeRange" })
+      setTimeout(() => { this.addToStateMessages(answer1) }, timer);
+      setTimeout(() => { this.addToStateMessages(answer2) }, timer);
       this.nextQuestion(6);
     } else {
-      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor confirma tu rango de edad para poder continuar`} />, { widget: "AgeRange" })
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor confirma que tipo de usuario eres para poder darte atención personalizada`} />, { widget: "UserType" })
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
-
     }
   }
 
-  handleUserType(message) {
-    this.addToState("userType", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(7);
+  handleAgeQuestion(message) {
+  /*   if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") { */
+      console.log("********", message)
+      this.addToState("ageRange", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`¡Estupendo! \nNos ayudará saber si tienes hijos`} />, { widget: "ChildrenNumber" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(7);
+   /*  } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor confirma tu rango de edad para poder continuar`} />, { widget: "AgeRange" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    } */
   }
+
+  handleChildrenNumber(message, state) {
+    this.addToState("children", { age: "" })
+    const answer = this.createChatbotMessage(<BotChatMessage message={`¿Que rango de edad tiene?`} />, { widget: "ChildrenAge" })
+    setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    this.nextQuestion(8);
+
+
+  }
+
+
+
+  handleChildrenAges(message, state) {
+    const answer = this.createChatbotMessage(<BotChatMessage message={`Pregunta codigo postal`} />)
+    this.nextQuestion(9);
+  }
+
+
+  handleZipCode(message, state) {
+    const answer = this.createChatbotMessage(<BotChatMessage message={`Pregunta codigo postal`} />)
+    this.nextQuestion(10);
+  }
+
+  //const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
 
   handleOpenQuestion(message) {
 
     console.log("input message", message);
     this.addToState("openQuestion", message);
     APIRequest(message);
-    this.nextQuestion(8);
+    this.nextQuestion(10);
 
 
     //const answer = this.createChatbotMessage(<BotChatMessage message={response} />)
