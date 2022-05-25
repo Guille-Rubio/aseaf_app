@@ -10,7 +10,7 @@ const APIRequest = (message) => {
     async function getData() {
       try {
         const request = await axios({
-          url: `http://alejomo.pythonanywhere.com/api/v1/consulta?text=despedida`/* 'https://dog.ceo/api/breeds/image/random' */,
+          url: `http://monca.pythonanywhere.com/api/v1/consulta?text=despedida`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })

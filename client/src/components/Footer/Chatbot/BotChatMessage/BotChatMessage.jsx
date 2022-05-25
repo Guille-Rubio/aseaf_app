@@ -14,6 +14,8 @@ const BotChatMessage = (props) => {
   
   return <div className="bot">
     <p>{props.message}</p>
+
+
     <div ref={chatBottom}></div>
   </div>;
 

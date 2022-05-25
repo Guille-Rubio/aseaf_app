@@ -1,7 +1,7 @@
-import axios from 'axios';
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
 import regex from '../regex';
 import APIRequest from './widgets/APIRequest';
+
 
 const timer = 0;
 
@@ -11,8 +11,6 @@ class ActionProvider {
     this.setState = setStateFunc;
     this.createClientMessage = createClientMessage;
   }
-
-
 
   handleName(message) {
     const initialToUpper = message.charAt(0).toUpperCase()
@@ -84,66 +82,62 @@ class ActionProvider {
   }
 
   handleAgeQuestion(message) {
-  /*   if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") { */
-      console.log("********", message)
+    if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") {
+      //console.log("********", message)
       this.addToState("ageRange", message)
       const answer = this.createChatbotMessage(<BotChatMessage message={`¡Estupendo! \nNos ayudará saber si tienes hijos`} />, { widget: "ChildrenNumber" })
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
       this.nextQuestion(7);
-   /*  } else {
+    } else {
       const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor confirma tu rango de edad para poder continuar`} />, { widget: "AgeRange" })
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    } */
+    }
   }
 
-  handleChildrenNumber(message, state) {
-    this.addToState("children", { age: "" })
-    const answer = this.createChatbotMessage(<BotChatMessage message={`¿Que rango de edad tiene?`} />, { widget: "ChildrenAge" })
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(8);
-
-
+  handleChildrenNumber(message) {
+    this.addToState("children", message)
+    if (message !== "0") {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Que edades tienen tus hijos?`} />, { widget: "ChildrenAge" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(8)
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Cual es tu código postal?`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(9)
+    }
   }
 
-
-
-  handleChildrenAges(message, state) {
+  handleChildrenAges(message) {
+    this.addToState("childrenAge", message)
     const answer = this.createChatbotMessage(<BotChatMessage message={`Pregunta codigo postal`} />)
+    setTimeout(() => { this.addToStateMessages(answer) }, timer);
     this.nextQuestion(9);
   }
 
-
   handleZipCode(message, state) {
-    const answer = this.createChatbotMessage(<BotChatMessage message={`Pregunta codigo postal`} />)
+    this.addToState("zipCode", message)
+    const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
+    setTimeout(() => { this.addToStateMessages(answer) }, timer);
     this.nextQuestion(10);
   }
 
-  //const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
-
   handleOpenQuestion(message) {
-
-    console.log("input message", message);
     this.addToState("openQuestion", message);
+
+    console.log("RESPUESTA DE LA API");
+
+    //****** */
+
     APIRequest(message);
-    this.nextQuestion(10);
+    this.nextQuestion(11);
 
 
-    //const answer = this.createChatbotMessage(<BotChatMessage message={response} />)
-    //setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    //this.nextQuestion(8);
+ 
 
     //Sign up user
 
   }
 
-  handleLastQuestion(message, state) {
-    axios({
-      url: "",
-      method: 'post',
-      data: state
-    })
-
-  }
 
 
   addToState(key, newValue) {
