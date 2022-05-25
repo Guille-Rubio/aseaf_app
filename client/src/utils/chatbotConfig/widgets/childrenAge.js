@@ -3,11 +3,11 @@ const ChildrenAge = (props) => {
 
     const numOfChildren = props.children
     console.log(numOfChildren, "CHILDREN IN STATE")
-    const numOfSelectors = []
-    const children = {}
+    const numOfSelectors = [];
+    const children = {};
 
     for (let i = 0; i < numOfChildren; i++) {
-        numOfSelectors.push(i)
+        numOfSelectors.push(i);
     }
 
     const handleAge = (event) => {
@@ -25,7 +25,7 @@ const ChildrenAge = (props) => {
 
         {numOfSelectors.map((child, i) => <>
             <select id={i} onChange={handleAge}>
-                <option value="0">0</option>
+                <option selected value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
