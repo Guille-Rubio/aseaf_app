@@ -84,6 +84,7 @@ const config = {
         {
             widgetName: 'APIRequest',
             widgetFunc: (props) => <APIRequest {...props} />,
+            mapStateToProps:["openQuestion"]
         }
 
 
