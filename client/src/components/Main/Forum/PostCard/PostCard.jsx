@@ -20,8 +20,9 @@ const PostCard = (props) => {
           {names.map((name, i) => {
             if (name === image)
               return <img className="postcard__avatar" src={avatars[i]} alt={author} />
+            else
+              return ''
           })}
-
           {author}
         </div>
         <div className="postcard__message">
@@ -29,23 +30,24 @@ const PostCard = (props) => {
         </div>
         <div className="postcard__icons">
           <FaRegBookmark /><FaRegHeart /><FaRegComment />
+          <buttun className="postcard__icons--button">Responder</buttun>
         </div>
       </div>
       <div>
         {response.length > 0
           ? response.map(resp => {
             return (
-              <div>
-                <div>
-
+              <div className="postcard__response">
+                <div className="postcard__header">
                   {names.map((name, i) => {
                     if (name === resp.image)
-                      return <img src={avatars[i]} alt={author} />
+                      return <img className="postcard__avatar" src={avatars[i]} alt={author} />
+                    else
+                      return ''
                   })}
-
                   {resp.author}
                 </div>
-                <div>
+                <div className="postcard__message">
                   {resp.message}
                 </div>
               </div>
