@@ -12,6 +12,7 @@ const PostCard = (props) => {
 
   const { title, image, author, message, response } = props.post;
   return (
+
     <div className="postcard__container">
       <p className="postcard__title">{title}</p>
       <div className="postcard">
@@ -20,6 +21,7 @@ const PostCard = (props) => {
             if (name === image)
               return <img className="postcard__avatar" src={avatars[i]} alt={author} />
           })}
+
           {author}
         </div>
         <div className="postcard__message">
@@ -35,10 +37,12 @@ const PostCard = (props) => {
             return (
               <div>
                 <div>
+
                   {names.map((name, i) => {
                     if (name === resp.image)
                       return <img src={avatars[i]} alt={author} />
                   })}
+
                   {resp.author}
                 </div>
                 <div>

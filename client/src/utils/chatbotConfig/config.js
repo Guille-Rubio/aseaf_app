@@ -8,6 +8,7 @@ import AgeRange from './widgets/ageRange';
 import UserType from './widgets/userType';
 import ChildrenNumber from './widgets/childrenNumber';
 import ChildrenAge from './widgets/childrenAge';
+import APIRequest from './widgets/APIRequest';
 
 const botName = 'Nexus';
 
@@ -42,15 +43,16 @@ const config = {
         consentGDPR: "",
         userType: "",
         ageRange: "",
-        children:[],
-        zipCode:"",
+        children: "",
+        childrenAge: "",
+        zipCode: "",
         questionNum: 0,
-        openQuestion:"",
-        apiResponse:{}
+        openQuestion: "",
+        apiResponse: {}
     },
 
     customComponents: {
-        //header: () => <div style={{ backgroundColor: '#F1630F', padding: "5px", borderRadius: "3px", margin: '5px' }}>Bienvenido</div>,
+
         botAvatar: (props) => <Avatar />,
         userAvatar: (props) => <UserAvatar {...props} />,
         botChatMessage: (props) => <BotChatMessage {...props} />,
@@ -77,9 +79,15 @@ const config = {
         {
             widgetName: 'ChildrenAge',
             widgetFunc: (props) => <ChildrenAge {...props} />,
+            mapStateToProps:["children"]
         },
-      
-      
+        {
+            widgetName: 'APIRequest',
+            widgetFunc: (props) => <APIRequest {...props} />,
+            mapStateToProps:["openQuestion"]
+        }
+
+
 
     ]
 
