@@ -6,24 +6,13 @@ const tokens = require('../utils/createToken');
 
 
 const signup = async (req, res) => {
-     //securizar query (eliminar caracteres raros)
-     const email = req.body.email;
-     const password = req.body.password;
- 
-     if (validateEmail(email) && validatePassword(password)) {
-         try {
- 
-             //first check if the user exists
-             await usersQuerys.signUpNewUser(email, password)
-             res.status(200).send('User created')
- 
-         } catch (error) {
-             console.log(error)
-             res.status(400).send('User was not saved')
-         }
-     } else {
-         res.status(400).send('invalid email or password')
-     }
+    //securizar query (eliminar caracteres raros)
+
+    const { name, surname, email, password, consentGDPR, userType, ageRange, children, childrenAge, zipCode, openQuestion, apiResponse } = req.body;
+
+    console.log(name, email, password)
+    res.status(200).json({ msg: "ok" })
+
 
 }
 
@@ -31,7 +20,7 @@ const login = async (req, res) => {
     const { email, password } = req.body
     try {
         const user = await usersQuerys.checkSignedUpUser(email, password)
-        user.password ? res.status(400).json({msg:"invalid user or password"}) : "";
+        user.password ? res.status(400).json({ msg: "invalid user or password" }) : "";
         if (password === user[0].password) {
             const token = await tokens.createToken(email)
             console.log(token)

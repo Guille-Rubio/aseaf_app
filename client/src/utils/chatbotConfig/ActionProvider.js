@@ -1,6 +1,6 @@
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
 import regex from '../regex';
-
+import axios from 'axios';
 
 
 const timer = 0;
@@ -100,7 +100,8 @@ class ActionProvider {
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
       this.nextQuestion(8)
     } else {
-      const answer = this.createChatbotMessage(<BotChatMessage message={`Cual es tu código postal?`} />)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
+      Como los trámites varían según la comunidad aautónoma, ¿me podrías facilitar tu código postal?`} />)
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
       this.nextQuestion(9)
     }
@@ -108,7 +109,8 @@ class ActionProvider {
 
   handleChildrenAges(message) {
     this.addToState("childrenAge", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={`Pregunta codigo postal`} />)
+    const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
+    Como los trámites varían según la comunidad aautónoma, ¿me podrías facilitar tu código postal?`} />)
     setTimeout(() => { this.addToStateMessages(answer) }, timer);
     this.nextQuestion(9);
   }
@@ -126,10 +128,17 @@ class ActionProvider {
     }
 
   }
-  handleOpenQuestion(message) {
+
+  handleOpenQuestion(message, state) {
     this.addToState("openQuestion", message);
-    const answer = this.createChatbotMessage(<BotChatMessage message={'Gracias por compartirlo, Lucía! Aquí tienes contenido según tus inquietudes:'} />, { widget: "APIRequest" })
+    const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias por compartirlo,${state.name}! Aquí tienes contenido según tus inquietudes:`} />, { widget: "APIRequest" })
     setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    console.log("STATE TO SEND", state)
+    axios({
+      url: 'http://localhost:5000/users/signup',
+      method: 'post',
+      data: "prueba"
+    })
 
 
     this.nextQuestion(11);

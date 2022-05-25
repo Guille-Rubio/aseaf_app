@@ -10,7 +10,7 @@ const APIRequest = (props) => {
 
       try {
         const request = await axios({
-          url: `http://monca.pythonanywhere.com/api/v1/consulta?text=despedida`,
+          url: `http://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })
