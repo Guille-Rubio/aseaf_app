@@ -1,0 +1,43 @@
+@import '../utils/variables.scss';
+
+.postcard {
+    -webkit-box-shadow: 0px 0px 14px 0px $color-secondary;
+    box-shadow: 0px 0px 3px 0px $color-secondary;
+    border-radius: 8px;
+    margin: 16px;
+}
+
+.postcard__title {
+    font-family: $font-family;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-mid-max;
+    color: $color-secondary;
+    margin: 16px;
+    padding-top: 15px;
+}
+
+.postcard__header {
+    font-family: $font-family;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-mid-min;
+    color: $color-secondary;
+    margin: 16px;
+    padding-top: 18px;
+}
+
+.postcard__avatar {
+    padding-right: 15px;
+}
+
+.postcard__message {
+    font-family: $font-family;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-min;
+    line-height: $line-height-min;
+    color: $color-secondary;
+    margin: 16px;
+}
+
+.postcard__icons {
+    color: $color-secondary;
+}

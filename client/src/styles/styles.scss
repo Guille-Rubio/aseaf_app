@@ -1,6 +1,6 @@
-
-@import '../styles/components/Home';
-@import '../styles/components/Footer';
+@import './components/Home';
+@import './components/Footer';
+@import './components/PostCard';
 @import './components/_Chatbot.scss';
 @import './components/Header.scss';
 @import './components/Nav.scss';
