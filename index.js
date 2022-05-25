@@ -17,16 +17,26 @@ app.use(cors());
 
 app.use("/", userRouter);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.post("/prueba", (req, res) => {
+  try {
+    console.log("LLEGO")
+    console.log(req.body)
+    res.send("Hello")
+  } catch (error) {
+    console.log(error)
+  }
+
+
 })
 
+
+
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + 'client/build/index.html'))
+  res.sendFile(path.join(__dirname + 'client/build/index.html'))
 })
 
 app.use((req, res, next) => {
-    return res.status(404).send({ message: 'Route' + req.url + ' Not found.' });
+  return res.status(404).send({ message: 'Route' + req.url + ' Not found.' });
 });
 
 app.listen(port, () => {

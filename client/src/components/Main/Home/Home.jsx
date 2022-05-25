@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import family_top from '../../../assets/img/family_top.png';
 import family_mid from '../../../assets/img/family_mid.png';
 import chatIcon from '../../../assets/img/chat.png';
@@ -21,7 +22,7 @@ const Home = () => {
         <p className="text__forum--question">¿Tienes alguna duda o inquietud sobre el proceso de acogida?</p>
         <p className="text__forum--answer">No te preocupes, es normal. Estamos aquí para ayudarte. </p>
         <p className="text__forum--answer">A través del foro puedes compartir tu experiencia, comentar inquitudes o preguntar dudas con el resto de familias que puedan estar pasando o ya hayan pasado por tus mismos pensamientos.</p>
-        <button id="foro" className="text__forum--button">Accede al foro</button>
+        <Link to="/forum"><button id="foro" className="text__forum--button">Accede al foro</button></Link>
       </div>
 
       <div className="text__offer">
