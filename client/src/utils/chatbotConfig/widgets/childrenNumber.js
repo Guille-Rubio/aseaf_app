@@ -13,7 +13,7 @@ const ChildrenNumber = (props) => {
         props.actionProvider.handleChildrenNumber(childrenNum)
     }
 
-    return <div className="options-container">
+    return <div className="bot">
 
         <label>Número de hijos</label>
         <select onChange={handleSelector}>

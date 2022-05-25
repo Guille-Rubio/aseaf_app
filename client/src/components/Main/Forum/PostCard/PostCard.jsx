@@ -8,7 +8,7 @@ const PostCard = (props) => {
       {title}
       <div>
         <div>
-          <img src={image} />
+          <img src={image} alt={author} />
           {author}
         </div>
         <div>
@@ -22,7 +22,7 @@ const PostCard = (props) => {
             return (
               <div>
                 <div>
-                  <img src={resp.image} />
+                  <img src={resp.image} alt={author} />
                   {resp.author}
                 </div>
                 <div>

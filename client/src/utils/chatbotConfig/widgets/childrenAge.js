@@ -3,11 +3,12 @@ const ChildrenAge = (props) => {
 
     const numOfChildren = props.children
     console.log(numOfChildren, "CHILDREN IN STATE")
-    const numOfSelectors = []
-    const children = {}
+    const numOfSelectors = [];
+    const children = {};
 
     for (let i = 0; i < numOfChildren; i++) {
-        numOfSelectors.push(i)
+        numOfSelectors.push(i);
+        children[`age${i}`] = "0";
     }
 
     const handleAge = (event) => {

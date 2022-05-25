@@ -1,6 +1,6 @@
 import BotChatMessage from '../../components/Footer/Chatbot/BotChatMessage/BotChatMessage';
 import regex from '../regex';
-import APIRequest from './widgets/APIRequest';
+
 
 
 const timer = 0;
@@ -83,7 +83,6 @@ class ActionProvider {
 
   handleAgeQuestion(message) {
     if (message === "26-30" || message === "31-40" || message === "41-50" || message === "51-60" || message === "+60") {
-      //console.log("********", message)
       this.addToState("ageRange", message)
       const answer = this.createChatbotMessage(<BotChatMessage message={`¡Estupendo! \nNos ayudará saber si tienes hijos`} />, { widget: "ChildrenNumber" })
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
@@ -114,27 +113,29 @@ class ActionProvider {
     this.nextQuestion(9);
   }
 
-  handleZipCode(message, state) {
-    this.addToState("zipCode", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(10);
-  }
+  handleZipCode(message) {
+    if (regex.validSpanishZipCode(message)) {
 
+      this.addToState("zipCode", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={'Dime; ¿Cuáles son tus principales inquietudes sobre el acogimiento familiar?'} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(10);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`El código postal introducido no es válido`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    }
+
+  }
   handleOpenQuestion(message) {
     this.addToState("openQuestion", message);
+    const answer = this.createChatbotMessage(<BotChatMessage message={'Gracias por compartirlo, Lucía! Aquí tienes contenido según tus inquietudes:'} />, { widget: "APIRequest" })
+    setTimeout(() => { this.addToStateMessages(answer) }, timer);
 
-    console.log("RESPUESTA DE LA API");
 
-    //****** */
-
-    APIRequest(message);
     this.nextQuestion(11);
 
-
- 
-
     //Sign up user
+
 
   }
 
