@@ -1,29 +1,56 @@
 const ChildrenAge = (props) => {
-    /* const options = [
+    console.log(props)
 
-        { text: "0", handler: () => { props.actionProvider.handleAgeQuestion("0") }, id: 1 },
-        { text: "1", handler: () => { props.actionProvider.handleAgeQuestion("1") }, id: 2 },
-        { text: "2", handler: () => { props.actionProvider.handleAgeQuestion("2") }, id: 3 },
-        { text: "3", handler: () => { props.actionProvider.handleAgeQuestion("3") }, id: 4 },
-        { text: "+3", handler: () => { props.actionProvider.handleAgeQuestion("+3") }, id: 5 },
-    ]; */
+    const numOfChildren = props.children
+    console.log(numOfChildren, "CHILDREN IN STATE")
+    const numOfSelectors = []
+    const children = {}
 
-   /*  const buttonsMarkup = options.map((option) => (
-        <button key={option.id} onClick={option.handler} className="chat-button">{option.text}</button>
-    )); */
+    for (let i = 0; i < numOfChildren; i++) {
+        numOfSelectors.push(i)
+    }
 
-    return <div className="options-container">
-        <selector>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-        </selector>
+    const handleAge = (event) => {
+        children[`age${event.target.id}`] = event.target.value;
+    }
+
+    const handleResponse = () => {
+        props.actionProvider.handleChildrenAges(children)
+    }
+
+
+    return <div className="bot">
+
+        <p>¿Qué edad tienen tus hijos?</p>
+
+        {numOfSelectors.map((child, i) => <>
+            <select id={i} onChange={handleAge}>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+            </select>
+        </>)}
+
+        <button onClick={handleResponse}>Confirmar</button>
+
+
     </div>;
-
 
 }
 

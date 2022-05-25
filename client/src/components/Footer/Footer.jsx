@@ -5,8 +5,6 @@ import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
 import MessageParser from '../../utils/chatbotConfig/MessageParser';
 import ActionProvider from "../../utils/chatbotConfig/ActionProvider";
-import APIRequest from "../../utils/chatbotConfig/widgets/APIRequest";
-
 
 
 const Footer = () => {
@@ -47,11 +45,11 @@ const Footer = () => {
           <div className="footer__bottom--social--icons"><FaFacebookF size={20} /><FaTwitter size={20} /><FaInstagram size={20} /><FaYoutube size={20} /> </div>
         </div>
       </div>
-      <APIRequest/>
+
 
       <button id='nexus2' className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
       {displayChat ?
-        <>
+        <> 
           <Chatbot
             config={config}
             messageParser={MessageParser}

@@ -31,33 +31,33 @@ class MessageParser {
 
 
         } else if (this.state.questionNum === 5) {
-            console.log("question7")
+            console.log("question6")
             this.actionProvider.handleUserType(message)
 
 
         } else if (this.state.questionNum === 6) {
-            console.log("question6")
+            console.log("question7")
             this.actionProvider.handleAgeQuestion(message)
 
-
+            //**** */
         } else if (this.state.questionNum === 7) {
-            console.log("question6")
-            this.actionProvider.handleChildrenNumber(message)
+            console.log("question8")
+            this.actionProvider.handleChildrenNumber(message, this.state)
 
 
         } else if (this.state.questionNum === 8) {
-            console.log("question6")
-            this.actionProvider.handleChildrenAge(message)
+            console.log("question9")
+            this.actionProvider.handleChildrenAges(message)
 
 
         } else if (this.state.questionNum === 9) {
-            console.log("Open question")
+            console.log("Open question10")
             this.actionProvider.handleZipCode(message)
 
 
         } else if (this.state.questionNum === 10) {
             console.log("last question")
-            this.actionProvider.handleLastQuestion(message, this.state)
+            this.actionProvider.handleOpenQuestion(message, this.state)
         }
 
     }
