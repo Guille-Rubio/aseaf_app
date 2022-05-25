@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const APIRequest = (props) => {
@@ -10,7 +11,7 @@ const APIRequest = (props) => {
 
       try {
         const request = await axios({
-          url: `http://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
+          url: `https://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })
@@ -24,13 +25,13 @@ const APIRequest = (props) => {
 
     getData()
 
-
+    // eslint-disable-next-line
   }, [])
 
   return <div className="bot">
-   
-    {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
 
+    {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
+    <Link to="customhelp"><button className="chat-button">Ir a contenido</button></Link>
   </div>;
 
 }

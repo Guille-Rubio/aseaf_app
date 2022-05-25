@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from 'react-router-dom'
 import Home from './Home/Home';
 import Forum from './Forum';
+import CustomHelp from "./CustomHelp/CustomHelp";
 
 const Main = () => {
   return (
@@ -9,6 +10,7 @@ const Main = () => {
       <Routes>
         <Route element={<Home />} path='/' />
         <Route element={<Forum />} path='/forum' />
+        <Route element={<CustomHelp/>} path='/customhelp'/>
       </Routes>
     </main>
   );
