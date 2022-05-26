@@ -4,7 +4,7 @@ import regex from '../regex';
 import axios from 'axios';
 
 
-const timer = 0;
+const timer = 1250;
 
 class ActionProvider {
   constructor(createChatbotMessage, setStateFunc, createClientMessage) {
@@ -14,20 +14,31 @@ class ActionProvider {
   }
 
   handleName(message) {
-    const initialToUpper = message.charAt(0).toUpperCase()
-    const remainder = message.slice(1)
-    const capitalized = initialToUpper + remainder
-    this.addToState("name", capitalized)
-    const answer = this.createChatbotMessage(<BotChatMessage message={`Es un placer conocerte, ${capitalized} ¿Me dirías cómo te apellidas?`} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(1);
+    console.log(message)
+    if (regex.onlyLettersAndSpace(message)) {
+      const initialToUpper = message.charAt(0).toUpperCase()
+      const remainder = message.slice(1)
+      const capitalized = initialToUpper + remainder
+      this.addToState("name", capitalized)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Es un placer conocerte, ${capitalized} ¿Me dirías cómo te apellidas?`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(1);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`El nombre debe contener solo letras`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    }
   }
 
   handleSurname(message) {
-    this.addToState("surname", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={'¿Nos podrías facilitar tu correo electrónico?'} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(2);
+    if (regex.onlyLettersAndSpace(message)) {
+      this.addToState("surname", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={'¿Nos podrías facilitar tu correo electrónico?'} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(2);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Los apellidos deben contener solo letras`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    }
   }
 
   handleEmail(message) {
@@ -45,10 +56,15 @@ class ActionProvider {
   }
 
   handlePassword(message) {
-    this.addToState("password", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={'¿Aceptas que al final de las preguntas te enviemos información personalizada según tus inquitudes con los datos que nos has facilitado?'} />, { widget: "ConsentGDPR" })
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(4);
+    if (regex.validPassword(message)) {
+      this.addToState("password", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={'¿Aceptas que al final de las preguntas te enviemos información personalizada según tus inquitudes con los datos que nos has facilitado?'} />, { widget: "ConsentGDPR" })
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(4);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={'La contraseña proporcionada no es lo suficientemente segura, debe incluir mayúsuculas, minúsculas número y algún caracter especia y tener una longitud de al menos 8 caracteresl'} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+    }
   }
 
   handleConsentGDPR(message) {
@@ -107,30 +123,41 @@ class ActionProvider {
   }
 
   handleChildrenNumber(message) {
-    this.addToState("children", message)
-    if (message !== "0") {
-      const userAnswer = this.createClientMessage(<UserChatMessage message={message} />)
-      this.addToStateMessages(userAnswer)
-      const answer = this.createChatbotMessage(<BotChatMessage message={`Que edades tienen tus hijos?`} />, { widget: "ChildrenAge" })
-      setTimeout(() => { this.addToStateMessages(answer) }, timer);
-      this.nextQuestion(8)
+    if (regex.onlyNumbers(message)) {
+      this.addToState("children", message)
+      if (message !== "0") {
+        const userAnswer = this.createClientMessage(<UserChatMessage message={message} />)
+        this.addToStateMessages(userAnswer)
+        const answer = this.createChatbotMessage(<BotChatMessage message={`Que edades tienen tus hijos?`} />, { widget: "ChildrenAge" })
+        setTimeout(() => { this.addToStateMessages(answer) }, timer);
+        this.nextQuestion(8)
+      } else {
+        const userAnswer = this.createClientMessage(<UserChatMessage message={message} />)
+        this.addToStateMessages(userAnswer)
+        const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
+      Como los trámites varían según la comunidad autónoma, ¿me podrías facilitar tu código postal?`} />)
+        setTimeout(() => { this.addToStateMessages(answer) }, timer);
+        this.nextQuestion(9)
+      }
     } else {
-      const userAnswer = this.createClientMessage(<UserChatMessage message={message} />)
-      this.addToStateMessages(userAnswer)
-      const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
-      Como los trámites varían según la comunidad aautónoma, ¿me podrías facilitar tu código postal?`} />)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor introduce un número válido`} />)
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
-      this.nextQuestion(9)
     }
   }
 
   handleChildrenAges(message) {
-    
-    this.addToState("childrenAge", message)
-    const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
+    if (typeof message === 'object') {
+      this.addToState("childrenAge", message)
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
     Como los trámites varían según la comunidad aautónoma, ¿me podrías facilitar tu código postal?`} />)
-    setTimeout(() => { this.addToStateMessages(answer) }, timer);
-    this.nextQuestion(9);
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+      this.nextQuestion(9);
+    } else {
+      const answer = this.createChatbotMessage(<BotChatMessage message={`Por favor introduce las edades haciendo uso de los selectores`} />)
+      setTimeout(() => { this.addToStateMessages(answer) }, timer);
+
+
+    }
   }
 
   handleZipCode(message) {
