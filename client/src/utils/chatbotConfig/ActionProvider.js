@@ -62,7 +62,7 @@ class ActionProvider {
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
       this.nextQuestion(4);
     } else {
-      const answer = this.createChatbotMessage(<BotChatMessage message={'La contraseña proporcionada no es lo suficientemente segura, debe incluir mayúsuculas, minúsculas número y algún caracter especia y tener una longitud de al menos 8 caracteresl'} />)
+      const answer = this.createChatbotMessage(<BotChatMessage message={'La contraseña proporcionada no es lo suficientemente segura, debe incluir mayúsuculas, minúsculas número y algún caracter especial y tener una longitud de al menos 8 caracteres'} />)
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
     }
   }
@@ -149,7 +149,7 @@ class ActionProvider {
     if (typeof message === 'object') {
       this.addToState("childrenAge", message)
       const answer = this.createChatbotMessage(<BotChatMessage message={`Gracias!
-    Como los trámites varían según la comunidad aautónoma, ¿me podrías facilitar tu código postal?`} />)
+    Como los trámites varían según la comunidad autónoma, ¿me podrías facilitar tu código postal?`} />)
       setTimeout(() => { this.addToStateMessages(answer) }, timer);
       this.nextQuestion(9);
     } else {

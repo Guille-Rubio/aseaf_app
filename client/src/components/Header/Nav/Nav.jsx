@@ -1,34 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
 
- 
-  
-/*   const { onClickOutside } = props;
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        onClickOutside && onClickOutside();
-      }
-    };
-    document.addEventListener('click', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  }, [onClickOutside]);
-
-  if(!props.show)
-    return null;
- */
-
-
-  return <nav className="nav" /* ref={ref} */>
+  return <nav className="nav">
     <ul className="nav__navlist">
       <li>Quienes somos</li>
-      <li>Ayuda personalizada</li>
-      <li>ASEAF</li>
+      <li><Link to="/customhelp" className="nav__hyperlink">Ayuda personalizada</Link></li>
+      <li><Link to={{ pathname: "https://www.aseaf.org/" }} target="_blank">ASEAF</Link></li>
       <li><Link to="/forum" className="nav__hyperlink" onClick={props.data}>Foro</Link></li>
     </ul>
   </nav>;

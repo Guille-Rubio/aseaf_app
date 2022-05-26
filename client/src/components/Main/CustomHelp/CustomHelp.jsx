@@ -12,7 +12,7 @@ const CustomHelp = () => {
 
   return <div className="custom-help-view">
     <div ref={helpTop}></div>
-    <img  src={customHelpView} alt="custom help view" />
+    <img  className="custom-help-img" src={customHelpView} alt="custom help view" />
   </div>;
 };
 

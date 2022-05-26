@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import family_top from '../../../assets/img/family_top.png';
 import family_mid from '../../../assets/img/family_mid.png';
 import chatIcon from '../../../assets/img/chat.png';
@@ -7,7 +7,11 @@ import peopleIcon from '../../../assets/img/people.png';
 import infoIcon from '../../../assets/img/info.png';
 import kids from '../../../assets/img/kids.png';
 
-const Home = () => {
+const Home = (props) => {
+
+  const scrollToChat = () => {
+    props.value.value.scrollIntoView({ behavior: "smooth" });
+  }
 
   const styleLink = {
     textDecoration: 'none'
@@ -18,7 +22,7 @@ const Home = () => {
       <div className='text__intro' >
         <p className="text__intro--bold">¡Hola! <br />Somos un enlace entre las familias y la asociación. Te ayudamos con las principales dudas e incertidumbres sobre el acogimiento familiar.</p>
         <p className="text__intro--normal">Conecta con nuestro chat inteligente para recibir un contenido de información personalizado</p>
-        <Link to=""><button id='nexus1' className="text__intro--button">Accede al chat</button></Link>
+        <button id='nexus1' onClick={scrollToChat} className="text__intro--button">Accede al chat</button>
       </div>
 
       <div className="text__forum">
@@ -63,7 +67,7 @@ const Home = () => {
           <img className="text__info--container--img" src={kids} alt='kids' />
         </div>
         <p className="text__info--text">ASEAF es la Asociación Estatal de Acogimiento Familiar y está integrada por 21 asociaciones de distintas Comunidades Autónomas formadas, en su mayoría, por familias acogedoras a las que además prestan apoyo de forma directa.</p>
-        <button id='info' className="text__info--button">+ Información</button>
+        <a href="https://www.aseaf.org/" target="_blank" rel="noreferrer"><button id='info' className="text__info--button">+ Información</button></a>
       </div>
     </>
   );
