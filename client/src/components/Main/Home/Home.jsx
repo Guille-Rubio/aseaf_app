@@ -14,7 +14,7 @@ const Home = () => {
       <div className='text__intro' >
         <p className="text__intro--bold">¡Hola! <br />Somos un enlace entre las familias y la asociación. Te ayudamos con las principales dudas e incertidumbres sobre el acogimiento familiar.</p>
         <p className="text__intro--normal">Conecta con nuestro chat inteligente para recibir un contenido de información personalizado</p>
-        <button id='nexus1' className="text__intro--button">Accede al chat</button>
+        <Link to=""><button id='nexus1' className="text__intro--button">Accede al chat</button></Link>
       </div>
 
       <div className="text__forum">
