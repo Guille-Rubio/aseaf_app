@@ -11,7 +11,7 @@ const APIRequest = (props) => {
 
       try {
         const request = await axios({
-          url: `https://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
+          url: `http://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=despedida`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })
