@@ -52,6 +52,9 @@
     &--button {
         @include custom-button($color-primary-hue-light, $color-secondary);
         float: right;
+        &:active {
+            transform: scale(1.15);
+        }
     }
 }
 

@@ -8,6 +8,10 @@ import infoIcon from '../../../assets/img/info.png';
 import kids from '../../../assets/img/kids.png';
 
 const Home = () => {
+
+  const styleLink = {
+    textDecoration: 'none'
+  }
   return (
     <>
       <img className='img__top' src={family_top} alt='family' />
@@ -22,7 +26,7 @@ const Home = () => {
         <p className="text__forum--question">¿Tienes alguna duda o inquietud sobre el proceso de acogida?</p>
         <p className="text__forum--answer">No te preocupes, es normal. Estamos aquí para ayudarte. </p>
         <p className="text__forum--answer">A través del foro puedes compartir tu experiencia, comentar inquitudes o preguntar dudas con el resto de familias que puedan estar pasando o ya hayan pasado por tus mismos pensamientos.</p>
-        <Link to="/forum"><button id="foro" className="text__forum--button">Accede al foro</button></Link>
+        <Link to="/forum" style={styleLink}><button id="foro" className="text__forum--button">Accede al foro</button></Link>
       </div>
 
       <div className="text__offer">
