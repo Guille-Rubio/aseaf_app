@@ -1,7 +1,7 @@
 const AgeRange = (props) => {
     const options = [
 
-        { text: "26-30", handler: () => { props.actionProvider.handleAgeQuestion("Si") }, id: 1 },
+        { text: "26-30", handler: () => { props.actionProvider.handleAgeQuestion("26-30") }, id: 1 },
         { text: "31-40", handler: () => { props.actionProvider.handleAgeQuestion("31-40") }, id: 2 },
         { text: "41-50", handler: () => { props.actionProvider.handleAgeQuestion("41-50") }, id: 3 },
         { text: "51-60", handler: () => { props.actionProvider.handleAgeQuestion("51-60") }, id: 4 },
