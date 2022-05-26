@@ -59,31 +59,27 @@
     @include custom-button($color-primary-hue-light, $color-secondary);
 }
 
-
 .react-chatbot-kit-user-chat-message-container {
     display: flex;
     justify-content: flex-end;
 }
 
-.react-chatbot-kit-chat-container {}
 
 .react-chatbot-kit-chat-inner-container {
     background-color: $color-body;
-
 }
 
-.react-chatbot-kit-chat-header {}
+.react-chatbot-kit-chat-header {
+    color:$color-body;
+}
 
 .react-chatbot-kit-chat-input-container {
     display: flex;
     justify-content: center;
-
 }
 
 .react-chatbot-kit-chat-message-container {
     padding: 15px;
-
-
 }
 
 .react-chatbot-kit-chat-input {
@@ -100,8 +96,6 @@
     gap: 15px;
 }
 
-.react-chatbot-kit-chat-input::placeholder {}
-
 .react-chatbot-kit-chat-btn-send {
     background-color: $color-secondary  !important;
     border: none;
@@ -115,14 +109,12 @@
 .react-chatbot-kit-chat-btn-send-icon {
     background-image: url('../../assets/img/send.svg') !important;
     background-repeat: no-repeat;
+    
 
     path {
-        fill: $color-primary;
-        d: path('');
-        z-index: 4;
+        display:none;
     }
 }
-
 
 .react-chatbot-kit-chat-bot-message-container {
     display: flex;
@@ -133,35 +125,7 @@
     }
 }
 
-.react-chatbot-kit-chat-bot-avatar-container {}
-
-.react-chatbot-kit-chat-bot-avatar-icon {}
-
-
-.react-chatbot-kit-chat-bot-avatar-letter {}
-
-.react-chatbot-kit-chat-bot-message {}
-
-
 .react-chatbot-kit-chat-bot-message-arrow {
     border: 2px solid green;
     background-color: green;
 }
-
-.react-chatbot-kit-chat-bot-loading-icon-container {}
-
-.chatbot-loader-container {}
-
-#chatbot-loader #chatbot-loader-dot1 {}
-
-#chatbot-loader #chatbot-loader-dot2 {}
-
-#chatbot-loader #chatbot-loader-dot3 {}
-
-.react-chatbot-kit-error {}
-
-.react-chatbot-kit-error-container {}
-
-.react-chatbot-kit-error-header {}
-
-.react-chatbot-kit-error-docs {}
