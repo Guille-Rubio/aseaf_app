@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header value={data}/>
-        <Main value={chatRef}/>
+        <Main value={data}/>
         <Footer value={data} />
       </BrowserRouter>
     </div>

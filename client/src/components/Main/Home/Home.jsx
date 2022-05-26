@@ -9,8 +9,12 @@ import kids from '../../../assets/img/kids.png';
 
 const Home = (props) => {
 
-  const scrollToChat = () => {
-    props.value.value.scrollIntoView({ behavior: "smooth" });
+
+
+  const scrollToChatbot = () => {
+    props.value.value.chatRef.scrollIntoView({ behavior: "smooth" })
+    props.value.value.setDisplayChat(true);
+
   }
 
   const styleLink = {
@@ -22,7 +26,7 @@ const Home = (props) => {
       <div className='text__intro' >
         <p className="text__intro--bold">¡Hola! <br />Somos un enlace entre las familias y la asociación. Te ayudamos con las principales dudas e incertidumbres sobre el acogimiento familiar.</p>
         <p className="text__intro--normal">Conecta con nuestro chat inteligente para recibir un contenido de información personalizado</p>
-        <button id='nexus1' onClick={scrollToChat} className="text__intro--button">Accede al chat</button>
+        <button id='nexus1' onClick={scrollToChatbot} className="text__intro--button">Accede al chat</button>
       </div>
 
       <div className="text__forum">
