@@ -1,8 +1,8 @@
 
 
 
-const onlyLetters = (string) => {
-    const regex = /([A-Za-z])/;
+const onlyLettersAndSpace = (string) => {
+    const regex = /(^[A-Za-z ]*$)/;
     return regex.test(string);
 }
 
@@ -16,12 +16,24 @@ const validSpanishZipCode = (zipCode) => {
     return regex.test(zipCode);
 }
 
+const validPassword = (password) => {
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\_\-])(?=.{8,})/;
+    return regexPassword.test(password);
+};
+
+const onlyNumbers = (input) => {
+    const regex = /^[0-9]*$/
+    return regex.test(input)
+}
+
 
 
 const regex = {
-    onlyLetters,
+    onlyLettersAndSpace,
     validEmail,
-    validSpanishZipCode
+    validSpanishZipCode,
+    validPassword,
+    onlyNumbers
 }
 
 

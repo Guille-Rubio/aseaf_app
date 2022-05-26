@@ -20,11 +20,11 @@ const config = {
 
     initialMessages: [
 
-        createChatBotMessage(<BotChatMessage message={"¡Hola!"} />, { delay: 0 }),
-        createChatBotMessage('Soy Nexus! Estoy aqui para ayudarte y resolver tus dudas e inquietudes', { delay: 0 }),
-        createChatBotMessage('Para poder ofrecerte una información más personalizada necesitamos crearte un perfil mediante un correo electrónico y una contraseña donde poder compartir contigo esa información.', { delay: 0 }),
+        createChatBotMessage(<BotChatMessage message={"¡Hola!"} />, { delay: 500 }),
+        createChatBotMessage('Soy Nexus! Estoy aqui para ayudarte y resolver tus dudas e inquietudes', { delay: 2500 }),
+        createChatBotMessage('Para poder ofrecerte una información más personalizada necesitamos crearte un perfil mediante un correo electrónico y una contraseña donde poder compartir contigo esa información.', { delay: 4500 }),
 
-        createChatBotMessage('Para poder conocerte mejor, ¿Cómo quieres que te llame?', { delay: 0 }),
+        createChatBotMessage('Para poder conocerte mejor, ¿Cómo quieres que te llame?', { delay: 7000 }),
 
     ],
 

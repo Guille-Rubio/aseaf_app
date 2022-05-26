@@ -31,7 +31,7 @@ const APIRequest = (props) => {
   return <div className="bot">
 
     {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
-    <Link to="customhelp"><button className="chat-button">Ir a contenido</button></Link>
+    <Link to="customhelp"><button className="chatbot__finish-button ">Ir a contenido</button></Link>
   </div>;
 
 }

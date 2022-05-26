@@ -54,6 +54,12 @@
     margin: 15px;
 }
 
+.chatbot__finish-button {
+    background: #F1630F;
+    border-radius: 40px;
+    color:white;
+}
+
 
 .react-chatbot-kit-user-chat-message-container {
     display: flex;
@@ -84,7 +90,7 @@
 .react-chatbot-kit-chat-input {
     width: 60vw;
     border-radius: 30px;
-    border:none;
+    border: none;
     padding: 12px;
     margin-bottom: 20px;
 }
@@ -122,9 +128,10 @@
 .react-chatbot-kit-chat-bot-message-container {
     display: flex;
     justify-content: flex-start;
-img {
-    height: 50px;
-}
+
+    img {
+        height: 50px;
+    }
 }
 
 .react-chatbot-kit-chat-bot-avatar-container {}
