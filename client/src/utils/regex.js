@@ -2,7 +2,7 @@
 
 
 const onlyLettersAndSpace = (string) => {
-    const regex = /(^[A-Za-z ]*$)/;
+    const regex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
     return regex.test(string);
 }
 

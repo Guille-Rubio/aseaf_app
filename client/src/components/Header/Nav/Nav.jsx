@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
 
-  const ref = useRef(null);
+ 
+  
 /*   const { onClickOutside } = props;
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Nav = (props) => {
  */
 
 
-  return <nav className="nav" ref={ref}>
+  return <nav className="nav" /* ref={ref} */>
     <ul className="nav__navlist">
       <li>Quienes somos</li>
       <li>Ayuda personalizada</li>

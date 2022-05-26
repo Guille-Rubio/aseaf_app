@@ -11,7 +11,7 @@ const APIRequest = (props) => {
 
       try {
         const request = await axios({
-          url: `https://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
+          url: `http://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=${props.openQuestion}`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })
@@ -31,6 +31,7 @@ const APIRequest = (props) => {
   return <div className="bot">
 
     {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
+    
     <Link to="customhelp"><button className="chatbot__finish-button ">Ir a contenido</button></Link>
   </div>;
 

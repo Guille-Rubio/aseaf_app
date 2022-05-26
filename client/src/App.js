@@ -4,9 +4,11 @@ import './styles/styles.scss';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,3 +21,7 @@ function App() {
 }
 
 export default App;
+
+<div>
+
+</div>
