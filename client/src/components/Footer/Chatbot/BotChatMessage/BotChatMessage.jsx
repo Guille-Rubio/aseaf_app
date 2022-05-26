@@ -13,7 +13,7 @@ const BotChatMessage = (props) => {
 
   
   return <div className="bot">
-    <p>{props.message}</p>
+    <>{props.message}</>
 
 
     <div ref={chatBottom}></div>

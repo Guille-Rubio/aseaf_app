@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import React, { /* useState, */ useRef, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Chatbot from "react-chatbot-kit";
 import config from "../../utils/chatbotConfig/config";
@@ -7,16 +6,22 @@ import MessageParser from '../../utils/chatbotConfig/MessageParser';
 import ActionProvider from "../../utils/chatbotConfig/ActionProvider";
 
 
-const Footer = () => {
+const Footer = (props) => {
 
-  const [displayChat, setDisplayChat] = useState(false);
+  const chatRef = useRef();
+
+  useEffect(() => {
+    props.value.setChatRef(chatRef.current) 
+    console.log(props.value.displayChat)
+    // eslint-disable-next-line
+  }, [])
 
   const handleChatDisplay = () => {
-    setDisplayChat(!displayChat)
+    props.value.setDisplayChat(!props.value.displayChat)
   }
 
   return (
-    <footer>
+    <footer id="footer">
       <div className="footer__top">
         <div className="footer__top--knowus">
           <p>CONÓCENOS</p>
@@ -34,7 +39,7 @@ const Footer = () => {
             <li>Aviso legal</li>
           </ul>
         </div>
-      </div>      
+      </div>
       <div className="footer__bottom">
         <div>
           <p>©️ 2022 ASEAF</p>
@@ -48,8 +53,9 @@ const Footer = () => {
 
 
       <button id='nexus2' className="chat-button" onClick={handleChatDisplay}>Habla con Nexus</button>
-      {displayChat ?
-        <> 
+      <div ref={chatRef}></div>
+      {props.value.displayChat ?
+        <>
           <Chatbot
             config={config}
             messageParser={MessageParser}

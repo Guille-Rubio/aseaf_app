@@ -4,11 +4,11 @@ import Home from './Home/Home';
 import Forum from './Forum';
 import CustomHelp from "./CustomHelp/CustomHelp";
 
-const Main = () => {
+const Main = (props) => {
   return (
     <main>
       <Routes>
-        <Route element={<Home />} path='/' />
+        <Route element={<Home value={props}/>} path='/' />
         <Route element={<Forum />} path='/forum' />
         <Route element={<CustomHelp/>} path='/customhelp'/>
       </Routes>
