@@ -4,7 +4,7 @@ import regex from '../regex';
 import axios from 'axios';
 
 
-const timer = 1250;
+const timer = 0;
 
 class ActionProvider {
   constructor(createChatbotMessage, setStateFunc, createClientMessage) {
@@ -72,7 +72,7 @@ class ActionProvider {
       const userAnswer = this.createClientMessage(<UserChatMessage message={message} />)
       this.addToStateMessages(userAnswer)
       this.addToState("consentGDPR", message)
-      const answer1 = this.createChatbotMessage(<BotChatMessage message={`¡Genial !`} />)
+      const answer1 = this.createChatbotMessage(<BotChatMessage message={`¡Genial!`} />)
       const answer2 = this.createChatbotMessage(<BotChatMessage message={`Para poder hacer mejor mi labor, me gustaría conocer  más sobre ti`} />)
       const answer3 = this.createChatbotMessage(<BotChatMessage message={`¿Ya eres familia de acogida o estás interesado?`} />, { widget: "UserType" })
       setTimeout(() => { this.addToStateMessages(answer1) }, timer);

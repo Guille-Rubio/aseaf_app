@@ -24,7 +24,7 @@ const Header = () => {
         </div>
         <button className="text__intro--button">¿Charlamos?</button>
       </div>
-      {displayMenu ? <Nav /> : ""}
+      {displayMenu ? <Nav data={handleMenuDisplay}/> : ""}
     </header>
   );
 };
