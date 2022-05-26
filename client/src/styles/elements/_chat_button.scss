@@ -15,4 +15,9 @@
     border-radius: 40px;
     border: none;
 
+    &:focus {
+        background-color: $color-body;
+        border:2px solid $color-primary-hue-dark;
+    }
+
 }
