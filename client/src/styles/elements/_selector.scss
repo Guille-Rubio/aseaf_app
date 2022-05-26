@@ -1,0 +1,14 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.custom__select {
+    background-color: $color-primary-hue-light;
+    border-radius: $button-border-radius;
+    padding: 7px 18px 7px 18px;
+    margin: 0px 5px;
+    border:none;
+
+    &--button {
+        @include custom-button($color-primary-hue-light, $color-secondary);
+    }
+}

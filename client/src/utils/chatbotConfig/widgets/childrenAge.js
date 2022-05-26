@@ -25,7 +25,7 @@ const ChildrenAge = (props) => {
         <p>¿Qué edad tienen tus hijos?</p>
 
         {numOfSelectors.map((child, i) => <>
-            <select id={i} onChange={handleAge}>
+            <select className='custom__select' id={i} onChange={handleAge}>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -48,7 +48,7 @@ const ChildrenAge = (props) => {
             </select>
         </>)}
 
-        <button onClick={handleResponse}>Confirmar</button>
+        <button className='custom__select--button' onClick={handleResponse}>Confirmar</button>
 
 
     </div>;

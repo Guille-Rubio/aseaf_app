@@ -16,7 +16,7 @@ const ChildrenNumber = (props) => {
     return <div className="bot">
 
         <label>Número de hijos</label>
-        <select onChange={handleSelector}>
+        <select className='custom__select' onChange={handleSelector}>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -34,7 +34,7 @@ const ChildrenNumber = (props) => {
             <option value="14">14</option>
             <option value="15">15</option>
         </select>
-        <button onClick={handleAnswer}>Confirmar</button>
+        <button className='custom__select--button' onClick={handleAnswer}>Confirmar</button>
     </div>;
 
 
