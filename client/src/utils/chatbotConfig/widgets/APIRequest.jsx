@@ -11,7 +11,7 @@ const APIRequest = (props) => {
 
       try {
         const request = await axios({
-          url: `http://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=despedida`,
+          url: `https://nlptripu-env-1.eba-mzkvmkcp.us-east-1.elasticbeanstalk.com/api/v1/consulta?text=despedida`,
           method: 'get',
           headers: { 'Content-Type': 'application/json' }
         })
@@ -31,6 +31,7 @@ const APIRequest = (props) => {
   return <div className="bot">
 
     {apiResponse.respond ? <p>{apiResponse.respond}</p> : ""}
+    <p>"Te preocupan las despedidas? Muchos han pasado por eso, aquí tienes algunos consejos de como llevarlo lo mejor posible. En el siguiente enlace podrás encontrar toda la información.:"</p>
     
     <Link to="customhelp"><button className="chatbot__finish-button ">Ir a contenido</button></Link>
   </div>;
