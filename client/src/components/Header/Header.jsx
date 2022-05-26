@@ -35,7 +35,7 @@ const Header = (props) => {
           {displayMenu ? <img src={crossMenuIcon} alt="close menu icon" onClick={handleMenuDisplay} /> : <img src={burgerMenuIcon} alt="burger menu" onClick={handleMenuDisplay} />}
           <Link to="/"><img src={logo} alt='logo enlace' onClick={closeMenu} /></Link>
         </div>
-        <button className="text__intro--button" onClick={scrollToChatbot}>¿Charlamos?</button>
+        <button className="text__intro--button" onClick={scrollToChatbot} id="nexus2">¿Charlamos?</button>
       </div>
       {displayMenu ? <Nav data={handleMenuDisplay} /> : ""}
     </header>
