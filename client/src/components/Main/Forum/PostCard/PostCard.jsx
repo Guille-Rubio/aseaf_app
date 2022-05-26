@@ -30,7 +30,7 @@ const PostCard = (props) => {
         </div>
         <div className="postcard__icons">
           <FaRegBookmark /><FaRegHeart /><FaRegComment />
-          <buttun className="postcard__icons--button">Responder</buttun>
+          <button className="postcard__icons--button">Responder</button>
         </div>
       </div>
       <div>

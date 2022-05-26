@@ -16,7 +16,7 @@ const Footer = () => {
   }
 
   return (
-    <footer>
+    <footer id="footer">
       <div className="footer__top">
         <div className="footer__top--knowus">
           <p>CONÓCENOS</p>
